@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#7d201b">
+    <meta
+      name="description"
+      content="选择妈祖、观音菩萨、关帝爷或玄天上帝，输入心中所问，并通过闽南传统月牙形筊杯完成数字投杯体验。"
+    >
+    <title>问心</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body data-ready="false">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <div class="page-weave" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="/" id="brand-home" aria-label="返回四位神明首页">
+        <span class="brand-seal" aria-hidden="true">问</span>
+        <span class="brand-name">问心</span>
+      </a>
+      <span class="header-ornament" aria-hidden="true">诚 · 敬 · 和</span>
+    </header>
+
+    <main id="main-content">
+      <section class="view home-view" data-view="home" aria-labelledby="home-title">
+        <div class="home-heading">
+          <div class="title-cloud" aria-hidden="true"></div>
+          <h1 id="home-title" class="home-selection-title">请选择您想请示的神明</h1>
+        </div>
+
+        <div class="deity-grid" id="deity-grid" aria-live="polite">
+          <div class="loading-panel">正在展开四幅神明画卷……</div>
+        </div>
+
+        <div class="home-note">
+          <span aria-hidden="true">◆</span>
+          静心一问，落杯即可
+          <span aria-hidden="true">◆</span>
+        </div>
+        <div class="temple-scene" aria-hidden="true">
+          <img src="/assets/decor/temple-scene.jpg" alt="">
+        </div>
+      </section>
+
+      <section class="view ritual-view" data-view="ritual" hidden aria-labelledby="ritual-deity-name">
+        <button class="back-button" id="back-home" type="button">
+          <span aria-hidden="true">←</span>
+          返回四位神明
+        </button>
+
+        <div class="ritual-layout">
+          <aside class="deity-portrait-panel">
+            <div class="portrait-frame" id="ritual-portrait-frame">
+              <img id="ritual-deity-image" src="" alt="">
+              <div class="portrait-fallback">人物画卷暂未展开</div>
+            </div>
+          </aside>
+
+          <div class="ritual-content">
+            <div class="ritual-heading">
+              <p class="eyebrow">心中所问 · 静候落杯</p>
+              <h1 class="visually-hidden" id="ritual-deity-name"></h1>
+            </div>
+
+            <div class="question-block">
+              <label for="question">我的请示</label>
+              <textarea
+                id="question"
+                rows="5"
+                maxlength="200"
+                placeholder="请输入您想请示的问题......"
+              ></textarea>
+              <div class="question-meta">
+                <p id="question-error" role="alert" aria-live="polite"></p>
+                <span id="question-count">0 / 200</span>
+              </div>
+            </div>
+
+            <div class="jiaobei-altar">
+              <div class="altar-ornament" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+              <div
+                class="cup-stage"
+                id="cup-stage"
+                data-face-a="flat"
+                data-face-b="flat"
+                aria-label="两枚月牙形筊杯"
+              >
+                <div class="cup cup-a">
+                  <div class="cup-inner">
+                    <img class="cup-face cup-flat" src="/assets/jiaobei/cup-flat.png" alt="">
+                    <img class="cup-face cup-round" src="/assets/jiaobei/cup-round.png" alt="">
+                  </div>
+                </div>
+                <div class="cup cup-b">
+                  <div class="cup-inner">
+                    <img class="cup-face cup-flat" src="/assets/jiaobei/cup-flat.png" alt="">
+                    <img class="cup-face cup-round" src="/assets/jiaobei/cup-round.png" alt="">
+                  </div>
+                </div>
+                <span class="cup-shadow cup-a-shadow" aria-hidden="true"></span>
+                <span class="cup-shadow cup-b-shadow" aria-hidden="true"></span>
+              </div>
+
+              <p class="toss-caption" id="toss-caption" aria-live="polite">
+                写下问题后，掷杯一次
+              </p>
+              <button class="throw-button" id="throw-button" type="button">
+                <span class="throw-icon" aria-hidden="true">卜</span>
+                <span>掷杯</span>
+              </button>
+            </div>
+
+            <section
+              class="result-panel"
+              id="result-panel"
+              data-state="idle"
+              aria-live="polite"
+              hidden
+            >
+              <h2 id="result-label"></h2>
+              <div class="result-cups" id="result-cups" aria-label="本次杯象图示">
+                <div class="mini-cup" data-cup="a">
+                  <img id="result-cup-a" alt="第一枚筊杯" src="">
+                </div>
+                <div class="mini-cup" data-cup="b">
+                  <img id="result-cup-b" alt="第二枚筊杯" src="">
+                </div>
+              </div>
+              <div class="result-actions">
+                <button class="primary-button" id="continue-button" type="button">继续请示</button>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <p class="ritual-disclaimer">
+          本平台为数字模拟投杯体验，不代表真实的神明回应。
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>问心 · 数字请示</span>
+      <span>静心所问，观杯自省</span>
+    </footer>
+
+    <noscript>请启用 JavaScript 以完成投杯体验。</noscript>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+backups/
+.backups/
+.codex-autonomy/
+*.jks
+*.keystore
+keystore.properties

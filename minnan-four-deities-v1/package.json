@@ -1,0 +1,26 @@
+{
+  "name": "minnan-four-deities-v1",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "闽南四位神明数字请示体验",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test --test-reporter=spec test/*.test.mjs",
+    "test:domain": "node --test test/ritual.test.mjs",
+    "test:browser": "node --test test/simple-browser.test.mjs",
+    "scan:secrets": "node scripts/scan-secrets.mjs",
+    "cap:sync": "cap sync android",
+    "android:debug": "npm run cap:sync && cd android && gradlew.bat assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3"
+  }
+}
